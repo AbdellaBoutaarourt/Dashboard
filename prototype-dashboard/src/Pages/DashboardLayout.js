@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const DashboardLayout = ({ children }) => {
     return (
-        <div className="flex h-screen bg-gray-100">
+        <div className="flex bg-gray-100">
 
             <aside className="w-64 bg-blue-800 text-white flex flex-col">
                 <div className="p-4 text-2xl font-bold">School Dashboard</div>

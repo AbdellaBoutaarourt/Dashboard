@@ -8,7 +8,7 @@ import StatisticsPage from './Pages/StatisticsPage';
 
 function App() {
   return (
-    <Router>
+    <div className=" bg-gray-100 min-h-screen"> <Router>
       <Routes>
         <Route
           path="/"
@@ -37,6 +37,9 @@ function App() {
 
       </Routes>
     </Router >
+    </div>
+
+
   );
 }
 
