@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DashboardHome from './Pages/DashboardHome';
+import SubjectsPage from './Pages/SubjectsPage';
 import DashboardLayout from './Pages/DashboardLayout';
 
 function App() {
@@ -15,6 +16,15 @@ function App() {
             </DashboardLayout>
           }
         />
+        <Route
+          path="/vakken"
+          element={
+            <DashboardLayout>
+              <SubjectsPage />
+            </DashboardLayout>
+          }
+        />
+
       </Routes>
     </Router>
   );
