@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const DashboardLayout = ({ children }) => {
     return (
         <div className="flex h-screen bg-gray-100">
-            {/* Sidebar */}
+
             <aside className="w-64 bg-blue-800 text-white flex flex-col">
                 <div className="p-4 text-2xl font-bold">School Dashboard</div>
                 <nav className="mt-4 flex-grow">
@@ -25,15 +25,12 @@ const DashboardLayout = ({ children }) => {
                 </nav>
             </aside>
 
-            {/* Main Content */}
             <div className="flex-1 flex flex-col">
-                {/* Header */}
                 <header className="bg-white shadow-md p-4 flex justify-between items-center">
                     <h1 className="text-xl font-semibold">Dashboard</h1>
                     <button className="bg-red-500 text-white px-4 py-2 rounded">Uitloggen</button>
                 </header>
 
-                {/* Page Content */}
                 <main className="flex-grow p-6">
                     {children}
                 </main>

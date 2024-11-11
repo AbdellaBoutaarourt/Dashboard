@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SubjectsPage = () => {
-    const subjects = ["Wiskunde", "Nederlands", "Biologie"]; // Voorbeelddata
+    const subjects = ["Wiskunde", "Nederlands", "Biologie"];
 
     return (
         <div className="p-6">

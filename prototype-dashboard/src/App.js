@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import DashboardHome from './Pages/DashboardHome';
 import SubjectsPage from './Pages/SubjectsPage';
 import DashboardLayout from './Pages/DashboardLayout';
+import StatisticsPage from './Pages/StatisticsPage';
+
 
 function App() {
   return (
@@ -24,9 +26,17 @@ function App() {
             </DashboardLayout>
           }
         />
+        <Route
+          path="/statistieken"
+          element={
+            <DashboardLayout>
+              <StatisticsPage />
+            </DashboardLayout>
+          }
+        />
 
       </Routes>
-    </Router>
+    </Router >
   );
 }
 
