@@ -1,0 +1,464 @@
+{
+    "students": [
+        {
+            "id": 1,
+            "name": "Emma Janssen",
+            "age": 16,
+            "class": "4A",
+            "subjects": [
+                {
+                    "id": 101,
+                    "name": "Wiskunde",
+                    "grade": 7.5
+                },
+                {
+                    "id": 102,
+                    "name": "Nederlands",
+                    "grade": 8.0
+                },
+                {
+                    "id": 103,
+                    "name": "Biologie",
+                    "grade": 7.0
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Liam de Vries",
+            "age": 17,
+            "class": "5B",
+            "subjects": [
+                {
+                    "id": 101,
+                    "name": "Wiskunde",
+                    "grade": null
+                },
+                {
+                    "id": 104,
+                    "name": "Engels",
+                    "grade": 7.8
+                },
+                {
+                    "id": 105,
+                    "name": "Scheikunde",
+                    "grade": 7.2
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Olivia Smits",
+            "age": 16,
+            "class": "4A",
+            "subjects": [
+                {
+                    "id": 102,
+                    "name": "Nederlands",
+                    "grade": 8.5
+                },
+                {
+                    "id": 104,
+                    "name": "Engels",
+                    "grade": 7.9
+                },
+                {
+                    "id": 106,
+                    "name": "Geschiedenis",
+                    "grade": 10.0
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Noah Bakker",
+            "age": 17,
+            "class": "5A",
+            "subjects": [
+                {
+                    "id": 103,
+                    "name": "Biologie",
+                    "grade": 6.5
+                },
+                {
+                    "id": 105,
+                    "name": "Scheikunde",
+                    "grade": null
+                },
+                {
+                    "id": 107,
+                    "name": "Aardrijkskunde",
+                    "grade": 8.2
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Sophia de Boer",
+            "age": 16,
+            "class": "4B",
+            "subjects": [
+                {
+                    "id": 102,
+                    "name": "Nederlands",
+                    "grade": 7.0
+                },
+                {
+                    "id": 103,
+                    "name": "Biologie",
+                    "grade": 8.3
+                },
+                {
+                    "id": 108,
+                    "name": "Muziek",
+                    "grade": 6.4
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Milan Visser",
+            "age": 17,
+            "class": "5A",
+            "subjects": [
+                {
+                    "id": 101,
+                    "name": "Wiskunde",
+                    "grade": 9.0
+                },
+                {
+                    "id": 105,
+                    "name": "Scheikunde",
+                    "grade": 8.5
+                },
+                {
+                    "id": 106,
+                    "name": "Geschiedenis",
+                    "grade": 7.5
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Isabella Koster",
+            "age": 16,
+            "class": "4C",
+            "subjects": [
+                {
+                    "id": 104,
+                    "name": "Engels",
+                    "grade": 8.0
+                },
+                {
+                    "id": 103,
+                    "name": "Biologie",
+                    "grade": 7.3
+                },
+                {
+                    "id": 107,
+                    "name": "Aardrijkskunde",
+                    "grade": 6.9
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "Ethan de Lange",
+            "age": 17,
+            "class": "5B",
+            "subjects": [
+                {
+                    "id": 101,
+                    "name": "Wiskunde",
+                    "grade": 9.5
+                },
+                {
+                    "id": 102,
+                    "name": "Nederlands",
+                    "grade": 6.9
+                },
+                {
+                    "id": 105,
+                    "name": "Scheikunde",
+                    "grade": 8.7
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "name": "Zara Jacobs",
+            "age": 16,
+            "class": "4A",
+            "subjects": [
+                {
+                    "id": 101,
+                    "name": "Wiskunde",
+                    "grade": 5.8
+                },
+                {
+                    "id": 104,
+                    "name": "Engels",
+                    "grade": 7.0
+                },
+                {
+                    "id": 106,
+                    "name": "Geschiedenis",
+                    "grade": 6.5
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Lucas de Groot",
+            "age": 16,
+            "class": "4B",
+            "subjects": [
+                {
+                    "id": 103,
+                    "name": "Biologie",
+                    "grade": 6.0
+                },
+                {
+                    "id": 105,
+                    "name": "Scheikunde",
+                    "grade": 7.6
+                },
+                {
+                    "id": 107,
+                    "name": "Aardrijkskunde",
+                    "grade": 6.2
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "name": "Maya Willems",
+            "age": 17,
+            "class": "5A",
+            "subjects": [
+                {
+                    "id": 101,
+                    "name": "Wiskunde",
+                    "grade": null
+                },
+                {
+                    "id": 103,
+                    "name": "Biologie",
+                    "grade": 7.1
+                },
+                {
+                    "id": 106,
+                    "name": "Geschiedenis",
+                    "grade": 8.2
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "name": "Sebastian Bakker",
+            "age": 16,
+            "class": "4A",
+            "subjects": [
+                {
+                    "id": 104,
+                    "name": "Engels",
+                    "grade": 6.8
+                },
+                {
+                    "id": 105,
+                    "name": "Scheikunde",
+                    "grade": 9.2
+                },
+                {
+                    "id": 106,
+                    "name": "Geschiedenis",
+                    "grade": 7.3
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "name": "Luca Janssen",
+            "age": 17,
+            "class": "5B",
+            "subjects": [
+                {
+                    "id": 101,
+                    "name": "Wiskunde",
+                    "grade": 7.4
+                },
+                {
+                    "id": 102,
+                    "name": "Nederlands",
+                    "grade": 8.3
+                },
+                {
+                    "id": 103,
+                    "name": "Biologie",
+                    "grade": 8.1
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "name": "Eva Meijer",
+            "age": 16,
+            "class": "4C",
+            "subjects": [
+                {
+                    "id": 104,
+                    "name": "Engels",
+                    "grade": 7.7
+                },
+                {
+                    "id": 105,
+                    "name": "Scheikunde",
+                    "grade": 9.3
+                },
+                {
+                    "id": 108,
+                    "name": "Muziek",
+                    "grade": null
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "name": "Oscar de Jong",
+            "age": 16,
+            "class": "4A",
+            "subjects": [
+                {
+                    "id": 103,
+                    "name": "Biologie",
+                    "grade": 8.5
+                },
+                {
+                    "id": 107,
+                    "name": "Aardrijkskunde",
+                    "grade": 6.9
+                },
+                {
+                    "id": 105,
+                    "name": "Scheikunde",
+                    "grade": 6.4
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "name": "Chloe Smit",
+            "age": 17,
+            "class": "5A",
+            "subjects": [
+                {
+                    "id": 101,
+                    "name": "Wiskunde",
+                    "grade": 8.1
+                },
+                {
+                    "id": 103,
+                    "name": "Biologie",
+                    "grade": 7.2
+                },
+                {
+                    "id": 104,
+                    "name": "Engels",
+                    "grade": 7.0
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "name": "Benjamin Peters",
+            "age": 16,
+            "class": "4B",
+            "subjects": [
+                {
+                    "id": 105,
+                    "name": "Scheikunde",
+                    "grade": 6.7
+                },
+                {
+                    "id": 107,
+                    "name": "Aardrijkskunde",
+                    "grade": 9.1
+                },
+                {
+                    "id": 106,
+                    "name": "Geschiedenis",
+                    "grade": 8.2
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "name": "Charlotte Koster",
+            "age": 17,
+            "class": "5B",
+            "subjects": [
+                {
+                    "id": 104,
+                    "name": "Engels",
+                    "grade": 8.2
+                },
+                {
+                    "id": 105,
+                    "name": "Scheikunde",
+                    "grade": 9.0
+                },
+                {
+                    "id": 106,
+                    "name": "Geschiedenis",
+                    "grade": 6.8
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "name": "James de Vries",
+            "age": 16,
+            "class": "4A",
+            "subjects": [
+                {
+                    "id": 101,
+                    "name": "Wiskunde",
+                    "grade": 7.3
+                },
+                {
+                    "id": 102,
+                    "name": "Nederlands",
+                    "grade": 6.2
+                },
+                {
+                    "id": 106,
+                    "name": "Geschiedenis",
+                    "grade": 7.0
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "name": "Sophia de Boer",
+            "age": 16,
+            "class": "4B",
+            "subjects": [
+                {
+                    "id": 103,
+                    "name": "Biologie",
+                    "grade": 8.2
+                },
+                {
+                    "id": 105,
+                    "name": "Scheikunde",
+                    "grade": 7.5
+                },
+                {
+                    "id": 107,
+                    "name": "Aardrijkskunde",
+                    "grade": 6.8
+                }
+            ]
+        }
+    ]
+}
