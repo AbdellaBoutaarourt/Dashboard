@@ -8,9 +8,12 @@ import {
     LineElement,
     PointElement,
     ArcElement,
+    Title,
+    Tooltip,
+    Legend,
 } from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, ArcElement);
+ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, ArcElement, Title, Tooltip, Legend);
 
 const StatisticsPage = () => {
     const [subjectsStats, setSubjectsStats] = useState([]);
@@ -84,45 +87,37 @@ const StatisticsPage = () => {
             {
                 label: "Aantal Studenten",
                 data: studentCounts.map((subject) => subject.count),
-                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+                backgroundColor: ["blue", "red", "green", "yellow", "orange", "purple", "white", "black"],
             },
         ],
     };
 
     return (
-        <div className="bg-gray-100 min-h-screen">
-            <div className="p-6">
-                <h1 className="text-2xl font-bold mb-4">Statistieken</h1>
+        <div className="bg-gray-100 min-h-screen p-6">
+            <h1 className="text-2xl font-bold mb-4">Statistieken</h1>
 
-                <div className="bg-white p-4 shadow-md rounded-lg mb-6">
-                    <h2 className="text-xl font-semibold mb-4">Gemiddeld Cijfer per Vak (Staafdiagram)</h2>
-                    {subjectsStats.length === 0 ? (
-                        <p>Geen statistieken beschikbaar...</p>
-                    ) : (
-                        <Bar data={barChartData} options={{ responsive: true }} />
-                    )}
+            <div className="flex flex-wrap gap-6">
+                <div className="bg-white p-4 shadow-md rounded-lg flex-1 min-w-[350px]">
+                    <h2 className="text-xl font-semibold mb-4">Gemiddeld Cijfer per Vak</h2>
+
+                    <Bar data={barChartData} options={{ responsive: true }} />
                 </div>
 
-                <div className="bg-white p-4 shadow-md rounded-lg mb-6">
-                    <h2 className="text-xl font-semibold mb-4">Gemiddeld Cijfer per Vak (Lijndiagram)</h2>
-                    {subjectsStats.length === 0 ? (
-                        <p>Geen statistieken beschikbaar...</p>
-                    ) : (
-                        <Line data={lineChartData} options={{ responsive: true }} />
-                    )}
+                <div className="bg-white p-4 shadow-md rounded-lg flex-1 min-w-[550px]">
+                    <h2 className="text-xl font-semibold mb-4">Gemiddeld Cijfer per Vak</h2>
+                    <Line data={lineChartData} options={{ responsive: true }} />
                 </div>
 
-                <div className="bg-white p-4 shadow-md rounded-lg">
-                    <h2 className="text-xl font-semibold mb-4">Aantal Studenten per Vak (Cirkeldiagram)</h2>
-                    {studentCounts.length === 0 ? (
-                        <p>Geen statistieken beschikbaar...</p>
-                    ) : (
-                        <Pie data={pieChartData} options={{ responsive: true }} />
-                    )}
+                <div className="bg-white p-4 shadow-md rounded-lg flex-1 min-w-[350px] max-w-[450px]">
+                    <h2 className="text-xl font-semibold mb-4">Aantal Studenten per vak</h2>
+
+                    <Pie data={pieChartData} options={{ responsive: true }} />
                 </div>
+
             </div>
         </div>
     );
+
 };
 
 export default StatisticsPage;
