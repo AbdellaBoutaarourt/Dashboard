@@ -3,10 +3,15 @@ import data from "../data.json";
 
 const DashboardHome = () => {
     const [students, setStudents] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
         setStudents(data.students);
     }, []);
+
+    const filteredStudents = students.filter((student) =>
+        student.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     const handleMissingGrade = (grade) => {
         return grade === null ? (
@@ -25,13 +30,21 @@ const DashboardHome = () => {
     };
 
     return (
-        <div className="container mx-auto p-6">
+        <div className="container mx-auto p-6 min-h-screen">
             <h1 className="text-3xl font-semibold mb-6">Dashboard Studenten</h1>
 
-            {students.length === 0 ? (
+            <input
+                type="text"
+                placeholder="Zoek student..."
+                className="p-2 border border-gray-300 rounded mb-4 w-full max-w-xs"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+
+            {filteredStudents.length === 0 ? (
                 <p>Geen gegevens beschikbaar...</p>
             ) : (
-                students.map((student) => (
+                filteredStudents.map((student) => (
                     <div key={student.id} className="mb-8 p-4 bg-white shadow-lg rounded-lg">
                         <h2 className="text-2xl font-medium">{student.name}</h2>
                         <p className="text-gray-600">Leeftijd: {student.age}</p>
