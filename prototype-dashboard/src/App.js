@@ -4,6 +4,8 @@ import DashboardHome from './Pages/DashboardHome';
 import SubjectsPage from './Pages/SubjectsPage';
 import DashboardLayout from './Pages/DashboardLayout';
 import StatisticsPage from './Pages/StatisticsPage';
+import StudentPage from './Pages/StudentPage';
+
 
 
 function App() {
@@ -23,6 +25,14 @@ function App() {
           element={
             <DashboardLayout>
               <SubjectsPage />
+            </DashboardLayout>
+          }
+        />
+        <Route
+          path="/students"
+          element={
+            <DashboardLayout>
+              <StudentPage />
             </DashboardLayout>
           }
         />

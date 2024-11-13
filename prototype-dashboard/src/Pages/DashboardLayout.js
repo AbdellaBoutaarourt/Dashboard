@@ -13,6 +13,9 @@ const DashboardLayout = ({ children }) => {
                             <Link to="/" className="block p-4 hover:bg-blue-600">Dashboard</Link>
                         </li>
                         <li>
+                            <Link to="/students" className="block p-4 hover:bg-blue-600">Studenten</Link>
+                        </li>
+                        <li>
                             <Link to="/vakken" className="block p-4 hover:bg-blue-600">Vakken</Link>
                         </li>
                         <li>
