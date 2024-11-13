@@ -15,6 +15,7 @@ ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, 
 const StudentPage = () => {
     const [students, setStudents] = useState([]);
     const [selectedStudentId, setSelectedStudentId] = useState(null);
+    const [selectedClass, setSelectedClass] = useState("");
 
     useEffect(() => {
         fetch("../data.json")
@@ -31,12 +32,39 @@ const StudentPage = () => {
         setSelectedStudentId(selectedStudentId === studentId ? null : studentId);
     };
 
+    const handleClassChange = (event) => {
+        setSelectedClass(event.target.value);
+    };
+
+    const filteredStudents = selectedClass
+        ? students.filter((student) => student.class === selectedClass)
+        : students;
+
+    const classOptions = [...new Set(students.map((student) => student.class))];
+
     return (
         <div className="bg-gray-100 min-h-screen p-6">
             <h1 className="text-2xl font-bold mb-4">Studenten</h1>
 
+            <div className="mb-4">
+                <label htmlFor="classFilter" className="mr-2">Selecteer Klas:</label>
+                <select
+                    id="classFilter"
+                    value={selectedClass}
+                    onChange={handleClassChange}
+                    className="border border-gray-300 p-2 rounded"
+                >
+                    <option value="">Alle Klassen</option>
+                    {classOptions.map((className, index) => (
+                        <option key={index} value={className}>
+                            {className}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {students.map((student) => {
+                {filteredStudents.map((student) => {
                     const isSelected = selectedStudentId === student.id;
                     const radarChartData = {
                         labels: student.subjects.map((subject) => subject.name),
