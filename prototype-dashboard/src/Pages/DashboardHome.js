@@ -1,12 +1,24 @@
 import React, { useEffect, useState } from "react";
-import data from "../data.json";
+import axios from "axios";
 
 const DashboardHome = () => {
     const [students, setStudents] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        setStudents(data.students);
+        // Fetch the data using Axios
+        axios.get("http://localhost:5000/students") // Replace with your actual API URL
+            .then((response) => {
+                setStudents(response.data); // Assuming the API response has a `students` array
+                setLoading(false);
+                console.log(response.data);
+            })
+            .catch((err) => {
+                setError("Error fetching data"); // Handle any error during the request
+                setLoading(false);
+            });
     }, []);
 
     const filteredStudents = students.filter((student) =>
@@ -41,7 +53,10 @@ const DashboardHome = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
 
-            {filteredStudents.length === 0 ? (
+            {loading && <p>Loading...</p>} {/* Display loading state */}
+            {error && <p className="text-red-500">{error}</p>} {/* Display error message */}
+
+            {filteredStudents.length === 0 && !loading ? (
                 <p>Geen gegevens beschikbaar...</p>
             ) : (
                 filteredStudents.map((student) => (
@@ -58,7 +73,7 @@ const DashboardHome = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {student.subjects.map((subject) => (
+                                {(student.subjects || []).map((subject) => (
                                     <tr key={subject.id} className="odd:bg-gray-50">
                                         <td className="px-4 py-2 border-b">{subject.name}</td>
                                         <td className="px-4 py-2 border-b">
