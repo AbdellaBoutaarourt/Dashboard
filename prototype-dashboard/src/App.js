@@ -5,13 +5,21 @@ import SubjectsPage from './Pages/SubjectsPage';
 import DashboardLayout from './Pages/DashboardLayout';
 import StatisticsPage from './Pages/StatisticsPage';
 import StudentPage from './Pages/StudentPage';
-
-
+import LoginPage from './Pages/LoginPage';
 
 function App() {
   return (
     <div className=" bg-gray-100 min-h-screen"> <Router>
       <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/login"
+          element={
+            <DashboardLayout>
+              <DashboardHome />
+            </DashboardLayout>
+          }
+        />
         <Route
           path="/"
           element={

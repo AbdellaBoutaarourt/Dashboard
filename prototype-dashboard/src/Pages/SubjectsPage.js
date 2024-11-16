@@ -64,7 +64,7 @@ const SubjectsPage = () => {
     };
 
     return (
-        <div className="bg-gray-100 min-h-screen">
+        <div className=" min-h-screen">
             <div className="p-6">
                 <h1 className="text-2xl font-bold mb-4">Vakken Overzicht</h1>
 

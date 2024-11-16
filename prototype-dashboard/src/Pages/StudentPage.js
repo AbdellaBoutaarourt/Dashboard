@@ -41,7 +41,7 @@ const StudentPage = () => {
     const classOptions = [...new Set(students.map((student) => student.class))];
 
     return (
-        <div className="bg-gray-100 min-h-screen p-6">
+        <div className=" min-h-screen p-6">
             <h1 className="text-2xl font-bold mb-4">Studenten</h1>
 
             <div className="mb-4">

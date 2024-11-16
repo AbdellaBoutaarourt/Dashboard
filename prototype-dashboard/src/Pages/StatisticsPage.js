@@ -147,7 +147,7 @@ const StatisticsPage = () => {
     };
 
     return (
-        <div className="bg-gray-100 min-h-screen p-6">
+        <div className=" min-h-screen p-6">
             <h1 className="text-2xl font-bold mb-4">Statistieken</h1>
 
             <div className="flex flex-wrap gap-6">
