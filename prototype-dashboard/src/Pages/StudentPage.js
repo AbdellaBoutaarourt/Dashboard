@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Radar } from "react-chartjs-2";
+import axios from "axios";
 import {
     Chart as ChartJS,
     RadialLinearScale,
@@ -18,14 +19,11 @@ const StudentPage = () => {
     const [selectedClass, setSelectedClass] = useState("");
 
     useEffect(() => {
-        fetch("../data.json")
-            .then((response) => response.json())
-            .then((data) => {
-                setStudents(data.students);
+        axios.get("http://localhost:5000/students")
+            .then((response) => {
+                setStudents(response.data);
+                console.log(response.data);
             })
-            .catch((error) => {
-                console.error("Error fetching data: ", error);
-            });
     }, []);
 
     const handleStudentClick = (studentId) => {
