@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Bar, Bubble, PolarArea, Doughnut } from "react-chartjs-2";
+import axios from "axios";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -22,16 +23,16 @@ const StatisticsPage = () => {
     const [ageCounts, setAgeCounts] = useState([]);
 
     useEffect(() => {
-        fetch("../data.json")
-            .then((response) => response.json())
-            .then((data) => {
+        axios.get("http://localhost:5000/students")
+            .then((response) => {
+                let students = response.data
                 const subjectGrades = {};
                 const subjectStudentCounts = {};
                 const classStudentCounts = {};
                 const ageStudentCounts = {};
 
                 //  aantal studenten per vak
-                data.students.forEach((student) => {
+                students.forEach((student) => {
                     student.subjects.forEach((subject) => {
                         if (!subjectGrades[subject.name]) {
                             subjectGrades[subject.name] = { total: 0, count: 0 };
@@ -99,7 +100,7 @@ const StatisticsPage = () => {
     };
 
     const bubbleChartData = {
-        labels: ageCounts.map((item) => item.age), // Age as labels
+        labels: ageCounts.map((item) => item.age),
         datasets: [
             {
                 label: "Aantal Studenten per Leeftijd",
