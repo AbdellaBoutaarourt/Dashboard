@@ -39,19 +39,48 @@ app.post('/login', async (req, res) => {
 
 app.get('/students', async (req, res) => {
     try {
-        const { data, error } = await supabase
+        const { data: students, error: studentsError } = await supabase
             .from('students')
             .select('*');
 
-        if (error) {
-            return res.status(400).json({ error: error.message });
+        if (studentsError) {
+            return res.status(400).json({ error: studentsError.message });
         }
 
-        res.status(200).json(data);
+        const { data: studentSubjects, error: studentSubjectsError } = await supabase
+            .from('student_subjects')
+            .select('*');
+
+        if (studentSubjectsError) {
+            return res.status(400).json({ error: studentSubjectsError.message });
+        }
+
+        const { data: subjects, error: subjectsError } = await supabase
+            .from('subjects')
+            .select('*');
+
+        if (subjectsError) {
+            return res.status(400).json({ error: subjectsError.message });
+        }
+
+        const combinedData = students.map((student) => ({
+            ...student,
+            subjects: studentSubjects
+                .filter((ss) => ss.student_id === student.id)
+                .map((ss) => ({
+                    ...subjects.find((subject) => subject.id === ss.subject_id),
+                    grade: ss.grade,
+                })),
+        }));
+
+        res.status(200).json(combinedData);
     } catch (error) {
-        res.status(500).json({ error: 'Er is een fout opgetreden bij het ophalen van studenten.' });
+        res.status(500).json({ error: 'eroor data' });
     }
 });
+
+
+
 
 app.listen(port, () => {
     console.log(`Server draait op http://localhost:${port}`);

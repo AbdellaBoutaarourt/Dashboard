@@ -8,15 +8,14 @@ const DashboardHome = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Fetch the data using Axios
-        axios.get("http://localhost:5000/students") // Replace with your actual API URL
+        axios.get("http://localhost:5000/students")
             .then((response) => {
-                setStudents(response.data); // Assuming the API response has a `students` array
+                setStudents(response.data);
                 setLoading(false);
                 console.log(response.data);
             })
             .catch((err) => {
-                setError("Error fetching data"); // Handle any error during the request
+                setError("Error fetching data");
                 setLoading(false);
             });
     }, []);
@@ -53,8 +52,8 @@ const DashboardHome = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
 
-            {loading && <p>Loading...</p>} {/* Display loading state */}
-            {error && <p className="text-red-500">{error}</p>} {/* Display error message */}
+            {loading && <p>Loading...</p>}
+            {error && <p className="text-red-500">{error}</p>}
 
             {filteredStudents.length === 0 && !loading ? (
                 <p>Geen gegevens beschikbaar...</p>
