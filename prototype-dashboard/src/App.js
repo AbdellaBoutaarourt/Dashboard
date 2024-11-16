@@ -1,13 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import DashboardHome from './Pages/DashboardHome';
 import SubjectsPage from './Pages/SubjectsPage';
 import DashboardLayout from './Pages/DashboardLayout';
 import StatisticsPage from './Pages/StatisticsPage';
 import StudentPage from './Pages/StudentPage';
 import LoginPage from './Pages/LoginPage';
+import AddPointPage from './Pages/AddPointPage';
 
 function App() {
+
+  const ProtectedRoute = ({ children }) => {
+    const authToken = localStorage.getItem('authToken');
+
+    if (!authToken) {
+      return <Navigate to="/login" replace />;
+    }
+
+    return children;
+  };
   return (
     <div className=" bg-gray-100 min-h-screen"> <Router>
       <Routes>
@@ -15,47 +26,67 @@ function App() {
         <Route
           path="/login"
           element={
-            <DashboardLayout>
-              <DashboardHome />
-            </DashboardLayout>
+            <ProtectedRoute>
+              <DashboardLayout>
+                <DashboardHome />
+              </DashboardLayout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/"
           element={
-            <DashboardLayout>
-              <DashboardHome />
-            </DashboardLayout>
+            <ProtectedRoute>
+              <DashboardLayout>
+                <DashboardHome />
+              </DashboardLayout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/vakken"
           element={
-            <DashboardLayout>
-              <SubjectsPage />
-            </DashboardLayout>
+            <ProtectedRoute>
+              <DashboardLayout>
+                <SubjectsPage />
+              </DashboardLayout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/students"
           element={
-            <DashboardLayout>
-              <StudentPage />
-            </DashboardLayout>
+            <ProtectedRoute>
+              <DashboardLayout>
+                <StudentPage />
+              </DashboardLayout>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/statistieken"
           element={
-            <DashboardLayout>
-              <StatisticsPage />
-            </DashboardLayout>
+            <ProtectedRoute>
+              <DashboardLayout>
+                <StatisticsPage />
+              </DashboardLayout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/add-point"
+          element={
+            <ProtectedRoute>
+              <DashboardLayout>
+                <AddPointPage />
+              </DashboardLayout>
+            </ProtectedRoute>
           }
         />
 
       </Routes>
     </Router >
-    </div>
+    </div >
 
 
   );

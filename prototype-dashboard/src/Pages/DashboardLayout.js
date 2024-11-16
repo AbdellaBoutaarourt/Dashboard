@@ -29,7 +29,7 @@ const DashboardLayout = ({ children }) => {
                             <Link to="/statistieken" className="block p-4 hover:bg-blue-600">Statistieken</Link>
                         </li>
                         <li>
-                            <Link to="/login" className="block p-4 hover:bg-blue-600">Inloggen</Link>
+                            <Link to="/add-point" className="block p-4 hover:bg-blue-600">Add Point</Link> {/* Voeg de link toe */}
                         </li>
                     </ul>
                 </nav>

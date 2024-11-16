@@ -79,7 +79,33 @@ app.get('/students', async (req, res) => {
     }
 });
 
+app.post('/add-point', async (req, res) => {
+    const { student_id, subject_id, point } = req.body;
 
+    if (!student_id || !subject_id || point === undefined) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+    try {
+        const { data, error } = await supabase
+            .from('student_subjects')
+            .upsert([
+                {
+                    student_id: student_id,
+                    subject_id: subject_id,
+                    grade: point,
+                },
+            ]);
+
+        if (error) {
+            return res.status(400).json({ error: error.message });
+        }
+
+        res.status(201).json({ message: 'Point added successfully', data });
+    } catch (error) {
+        res.status(500).json({ error: 'An error occurred while adding the point.' });
+    }
+});
 
 
 app.listen(port, () => {
