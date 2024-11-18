@@ -8,6 +8,8 @@ const SubjectsPage = () => {
     const [selectedSubject, setSelectedSubject] = useState(null);
     const [selectedClass, setSelectedClass] = useState(null);
     const [studentsForSubject, setStudentsForSubject] = useState([]);
+    const [confirmDelete, setConfirmDelete] = useState({ show: false, studentId: null, studentName: "" });
+    const [deleteMessage, setDeleteMessage] = useState("");
 
     useEffect(() => {
         axios.get("http://localhost:5000/students")
@@ -63,11 +65,37 @@ const SubjectsPage = () => {
         }
     };
 
+    const confirmStudentDeletion = (studentId, studentName) => {
+        setConfirmDelete({ show: true, studentId, studentName });
+    };
+
+    const handleDeleteStudent = async () => {
+        try {
+            await axios.delete(`http://localhost:5000/students/${confirmDelete.studentId}/subjects/${selectedSubject}`);
+            setStudentsForSubject(prev => prev.filter(student => student.id !== confirmDelete.studentId));
+            setDeleteMessage(`${confirmDelete.studentName} is succesvol verwijderd.`);
+            setConfirmDelete({ show: false, studentId: null, studentName: "" });
+
+            setTimeout(() => setDeleteMessage(""), 3000);
+        } catch (error) {
+            console.error("Error deleting student:", error);
+            setDeleteMessage("Er is een fout opgetreden bij het verwijderen van de student.");
+        }
+    };
+    const cancelDelete = () => {
+        setConfirmDelete({ show: false, studentId: null, studentName: "" });
+    };
+
+
     return (
         <div className=" min-h-screen">
             <div className="p-6">
                 <h1 className="text-2xl font-bold mb-4">Vakken Overzicht</h1>
-
+                {deleteMessage && (
+                    <div className="p-4 mb-4 bg-green-100 text-green-800 rounded border border-green-300">
+                        {deleteMessage}
+                    </div>
+                )}
                 <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {subjects.length === 0 ? (
                         <p className="text-gray-600">Loading...</p>
@@ -116,12 +144,38 @@ const SubjectsPage = () => {
                                         <h3 className="text-lg font-semibold">{student.name}</h3>
                                         <p>Klas: {student.class}</p>
                                         <p>Leeftijd: {student.age}</p>
+                                        <button
+                                            className="mt-2 text-red-600 hover:underline"
+                                            onClick={() => confirmStudentDeletion(student.id, student.name)}
+                                        >
+                                            Verwijder Uit {selectedSubject}
+                                        </button>
                                     </div>
                                 ))}
                             </div>
                         )}
                     </div>
                 )}
+                {confirmDelete.show && (
+                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div className="bg-white p-6 rounded shadow-md text-center">
+                            <p className="mb-4">Weet je zeker dat je {confirmDelete.studentName} wilt verwijderen uit {selectedSubject}?</p>
+                            <button
+                                className="px-4 py-2 bg-red-600 text-white rounded mr-2"
+                                onClick={handleDeleteStudent}
+                            >
+                                Verwijder
+                            </button>
+                            <button
+                                className="px-4 py-2 bg-gray-300 rounded"
+                                onClick={cancelDelete}
+                            >
+                                Annuleer
+                            </button>
+                        </div>
+                    </div>
+                )}
+
             </div>
         </div>
     );

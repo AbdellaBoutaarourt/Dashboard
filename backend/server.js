@@ -32,7 +32,7 @@ app.post('/login', async (req, res) => {
 
         res.status(200).json({ message: 'Inloggen succesvol!', user: data });
     } catch (error) {
-        res.status(500).json({ error: 'Er is een fout opgetreden bij inloggen.' });
+        res.status(500).json({ error: 'Error when login' });
     }
 });
 
@@ -106,6 +106,40 @@ app.post('/add-point', async (req, res) => {
         res.status(500).json({ error: 'An error occurred while adding the point.' });
     }
 });
+
+
+app.delete('/students/:id/subjects/:subject', async (req, res) => {
+    const { id, subject } = req.params;
+
+    try {
+        const { data: subjectData, error: subjectError } = await supabase
+            .from('subjects')
+            .select('id')
+            .eq('name', subject)
+            .single();
+
+        if (subjectError || !subjectData) {
+            return res.status(404).json({ error: 'Subject not found' });
+        }
+
+        const subjectId = subjectData.id;
+
+        // Delete record from student_subjects
+        const { data, error } = await supabase
+            .from('student_subjects')
+            .delete()
+            .match({ student_id: id, subject_id: subjectId });
+
+        if (error) {
+            return res.status(400).json({ error: error.message });
+        }
+
+        res.status(200).json({ message: 'Student successfully removed from subject' });
+    } catch (error) {
+        res.status(500).json({ error: 'An error occurred during deletion' });
+    }
+});
+
 
 
 app.listen(port, () => {
