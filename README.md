@@ -65,8 +65,7 @@ Follow these steps to set up the project on your local machine.
 
 ## Folder Structure
 
-Dashboard/
-│
+
 ├── backend/
 │   ├── .env
 │   ├── node_modules/
@@ -87,6 +86,21 @@ Dashboard/
 │   └── tailwind.config.js
 │
 └── README.md
+
+ |-- backend/
+ |   |-- server.js
+ |   |-- .env
+ |-- prototype-dashboard/
+ |   |-- public/
+ |   |-- src/
+ |       |-- pages/
+ |       |-- App.css
+ |       |-- App.js
+ |       |-- index.css
+ |       |-- index.js
+ |       |-- README.md
+ |       |-- tailwind.config.js
+ |-- README.md
 
 
 ## SOURCES
