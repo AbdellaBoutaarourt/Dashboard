@@ -65,20 +65,22 @@ Follow these steps to set up the project on your local machine.
 
 ## Folder Structure
 
- |-- backend/
- |   |-- server.js
- |   |-- .env
- |-- prototype-dashboard/
- |   |-- public/
- |   |-- src/
- |       |-- pages/
- |       |-- App.css
- |       |-- App.js
- |       |-- index.css
- |       |-- index.js
- |       |-- README.md
- |       |-- tailwind.config.js
- |-- README.md
+### `backend/`
+- `server.js`: Main server file for backend logic.
+- `.env`: Environment variables for the backend configuration.
+
+### `prototype-dashboard/`
+- `public/`
+- `src/`
+  - `pages/`
+  - `App.css`
+  - `App.js`
+  - `index.css`
+  - `index.js`
+  - `README.md`
+  - `tailwind.config.js`
+### `README.md`
+
 
 
 ## SOURCES
@@ -109,12 +111,12 @@ Follow these steps to set up the project on your local machine.
 ### YouTube Tutorials
 
 - **Chart.js Tutorial**
-  A YouTube tutorial that covers the basics of using [Chart.js for data visualization](https://www.youtube.com/watch?v=ZpfseYy5Hxg).
-  Introduction To ChartJS,[React ChartJS Tutorial](https://m.youtube.com/watch?v=RF57yDglDfE).
-  Integrate Chart.js Using [React with Data from a REST API](https://m.youtube.com/watch?v=yOousFGfmZc).
+  - A YouTube tutorial that covers the basics of using [Chart.js for data visualization](https://www.youtube.com/watch?v=ZpfseYy5Hxg).
+  -  Introduction To ChartJS,[React ChartJS Tutorial](https://m.youtube.com/watch?v=RF57yDglDfE).
+  - Integrate Chart.js Using [React with Data from a REST API](https://m.youtube.com/watch?v=yOousFGfmZc).
 
 ### ChatGPT Contributions
 
-  [ChatGPT responses](https://chatgpt.com/share/673b9b7c-4358-8008-8b5b-1e1d4f190415) that helps for the add point feature.
-  A useful [ChatGPT responses](https://chatgpt.com/share/673b9dee-b6dc-8008-bb37-3613d2aa9fa5) To store the data you into Supabase.
+ -  [ChatGPT responses](https://chatgpt.com/share/673b9b7c-4358-8008-8b5b-1e1d4f190415) that helps for the add point feature.
+ -  A useful [ChatGPT responses](https://chatgpt.com/share/673b9dee-b6dc-8008-bb37-3613d2aa9fa5) To store the data you into Supabase.
 
