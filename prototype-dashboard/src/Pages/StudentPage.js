@@ -19,7 +19,7 @@ const StudentPage = () => {
     const [selectedClass, setSelectedClass] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:5000/students")
+        axios.get("https://dashboard-ne19.onrender.com/students")
             .then((response) => {
                 setStudents(response.data);
                 console.log(response.data);

@@ -12,7 +12,7 @@ const AddPointPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/students');
+                const response = await axios.get('https://dashboard-ne19.onrender.com/students');
                 const data = response.data;
 
                 setStudents(data.map((student) => ({
@@ -47,7 +47,7 @@ const AddPointPage = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:5000/add-point', {
+            const response = await axios.post('https://dashboard-ne19.onrender.com/add-point', {
                 student_id: studentId,
                 subject_id: subjectId,
                 point: point,

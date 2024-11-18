@@ -23,7 +23,7 @@ const StatisticsPage = () => {
     const [ageCounts, setAgeCounts] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/students")
+        axios.get("https://dashboard-ne19.onrender.com/students")
             .then((response) => {
                 let students = response.data
                 const subjectGrades = {};

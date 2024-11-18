@@ -8,7 +8,7 @@ const DashboardHome = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/students")
+        axios.get("https://dashboard-ne19.onrender.com/students")
             .then((response) => {
                 setStudents(response.data);
                 setLoading(false);

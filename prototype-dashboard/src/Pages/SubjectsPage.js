@@ -12,7 +12,7 @@ const SubjectsPage = () => {
     const [deleteMessage, setDeleteMessage] = useState("");
 
     useEffect(() => {
-        axios.get("http://localhost:5000/students")
+        axios.get("https://dashboard-ne19.onrender.com/students")
             .then((response) => {
                 const studentsData = response.data;
                 setStudents(studentsData);
@@ -71,7 +71,7 @@ const SubjectsPage = () => {
 
     const handleDeleteStudent = async () => {
         try {
-            await axios.delete(`http://localhost:5000/students/${confirmDelete.studentId}/subjects/${selectedSubject}`);
+            await axios.delete(`https://dashboard-ne19.onrender.com/students/${confirmDelete.studentId}/subjects/${selectedSubject}`);
             setStudentsForSubject(prev => prev.filter(student => student.id !== confirmDelete.studentId));
             setDeleteMessage(`${confirmDelete.studentName} is succesvol verwijderd.`);
             setConfirmDelete({ show: false, studentId: null, studentName: "" });
