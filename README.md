@@ -65,28 +65,6 @@ Follow these steps to set up the project on your local machine.
 
 ## Folder Structure
 
-
-├── backend/
-│   ├── .env
-│   ├── node_modules/
-│   ├── server.js
-│
-├── prototype-dashboard/
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── App.js
-│   │   ├── index.js
-│   │   ├── styles/
-│   │   ├── routes.js
-│   │   └── README.md
-│   └── tailwind.config.js
-│
-└── README.md
-
  |-- backend/
  |   |-- server.js
  |   |-- .env
